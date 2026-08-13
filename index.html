@@ -380,6 +380,40 @@
     flex-grow:1;
   }
 
+  .project-card.filled{border-style:solid;}
+
+  .project-card .tag.live{
+    color:var(--accent);
+    border-color:var(--accent);
+    background:var(--accent-soft);
+  }
+
+  .project-card.filled h3{
+    color:var(--text);
+    flex-grow:0;
+  }
+
+  .project-card.filled h3 a{
+    color:var(--text);
+    text-decoration:none;
+  }
+
+  .project-card.filled h3 a:hover{color:var(--accent);}
+
+  .project-card.filled p{
+    color:var(--text-muted);
+  }
+
+  .project-link{
+    align-self:flex-start;
+    font-size:13px;
+    font-weight:600;
+    color:var(--accent);
+    text-decoration:none;
+  }
+
+  .project-link:hover{text-decoration:underline;}
+
   .project-field{
     display:flex;
     gap:10px;
@@ -591,20 +625,11 @@
         <p>진행했거나 진행 중인 프로젝트를 정리할 공간입니다. 상세 내용은 추후 업데이트됩니다.</p>
       </div>
       <div class="card-grid">
-        <div class="project-card">
-          <span class="tag">준비 중</span>
-          <div class="project-field">
-            <span class="field-label">제목</span>
-            <span class="field-value placeholder">나중에 입력</span>
-          </div>
-          <div class="project-field">
-            <span class="field-label">설명</span>
-            <span class="field-value placeholder">나중에 입력</span>
-          </div>
-          <div class="project-field">
-            <span class="field-label">링크</span>
-            <span class="field-value placeholder">나중에 입력</span>
-          </div>
+        <div class="project-card filled">
+          <span class="tag live">WEB APP</span>
+          <h3><a href="https://nabisori51-tech.github.io/financial-planner/" target="_blank" rel="noopener">몬테카를로 금융 플래너</a></h3>
+          <p>실제 S&amp;P 500 데이터로 미래 자산을 시뮬레이션하는 인터랙티브 웹앱</p>
+          <a class="project-link" href="https://nabisori51-tech.github.io/financial-planner/" target="_blank" rel="noopener">바로가기 →</a>
         </div>
         <div class="project-card">
           <span class="tag">준비 중</span>
