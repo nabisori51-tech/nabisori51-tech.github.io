@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이응호 | Lee Eungho</title>
+<meta name="description" content="이응호의 개인 소개 페이지 — 관심사와 프로젝트, 연락처.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-card:#F7F9FC;
+    --text:#101B33;
+    --text-muted:#4B5670;
+    --text-faint:#9AA4B8;
+    --border:#E1E5EE;
+    --accent:#1E3A5F;
+    --accent-dark:#0F2340;
+    --accent-soft:#EEF1F7;
+    --header-bg:rgba(255,255,255,0.85);
+    --contact-bg:#101B33;
+    --contact-text:#FFFFFF;
+    --contact-text-muted:#CBD5E1;
+    --contact-eyebrow:#A7B4CC;
+    --radius:14px;
+    --max-width:1040px;
+  }
+
+  html[data-theme="dark"]{
+    --bg:#0B1220;
+    --bg-card:#131B2E;
+    --text:#E8ECF4;
+    --text-muted:#A9B4C9;
+    --text-faint:#6B7690;
+    --border:#232D42;
+    --accent:#7DA0D8;
+    --accent-dark:#9DB8E3;
+    --accent-soft:#1B2740;
+    --header-bg:rgba(11,18,32,0.85);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Inter','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .25s ease, color .25s ease;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  img{max-width:100%;display:block;}
+
+  .wrap{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--header-bg);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    transition:background-color .25s ease, border-color .25s ease;
+  }
+
+  .nav-inner{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .logo{
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:-0.01em;
+  }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+  }
+
+  nav a{
+    font-size:14px;
+    font-weight:500;
+    color:var(--text-muted);
+    transition:color .15s ease;
+  }
+
+  nav a:hover{color:var(--accent);}
+
+  .theme-toggle{
+    width:38px;
+    height:38px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    cursor:pointer;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+
+  .theme-toggle:hover{border-color:var(--accent);transform:translateY(-1px);}
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:4px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+  }
+
+  .nav-toggle span{
+    width:22px;
+    height:2px;
+    background:var(--text);
+    display:block;
+  }
+
+  /* ---------- Eyebrow / section headings ---------- */
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+
+  section{
+    padding:96px 0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+
+  .section-head h2{
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    margin-bottom:12px;
+  }
+
+  .section-head p{
+    color:var(--text-muted);
+    font-size:16px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:120px 0 96px;
+    border-bottom:1px solid var(--border);
+  }
+
+  .hero-grid{
+    display:flex;
+    align-items:center;
+    gap:56px;
+  }
+
+  .hero-text{flex:1;}
+
+  .avatar{
+    flex-shrink:0;
+    width:168px;
+    height:168px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--accent) 0%, #0A1830 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:76px;
+    box-shadow:0 12px 32px -8px rgba(15,35,64,0.35);
+  }
+
+  .hero h1{
+    font-size:56px;
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:1.15;
+    margin-bottom:20px;
+  }
+
+  .hero h1 .accent{color:var(--accent);}
+
+  .hero-lead{
+    font-size:18px;
+    color:var(--text-muted);
+    max-width:560px;
+    margin-bottom:32px;
+  }
+
+  .hero-lead strong{color:var(--text);font-weight:600;}
+
+  .cta-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+
+  .btn-primary{
+    background:var(--accent);
+    color:#fff;
+    box-shadow:0 8px 20px -6px rgba(15,35,64,0.5);
+  }
+
+  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px);}
+
+  .btn-secondary{
+    background:var(--bg-card);
+    color:var(--text);
+    border:1px solid var(--border);
+  }
+
+  .btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:start;
+  }
+
+  .about-text p{
+    color:var(--text-muted);
+    margin-bottom:16px;
+    font-size:15.5px;
+  }
+
+  .placeholder{
+    color:var(--text-faint);
+    font-style:italic;
+  }
+
+  .info-table{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+
+  .info-row{
+    display:flex;
+    padding:16px 20px;
+    border-bottom:1px solid var(--border);
+    font-size:14.5px;
+  }
+
+  .info-row:last-child{border-bottom:none;}
+
+  .info-label{
+    width:96px;
+    flex-shrink:0;
+    color:var(--text-faint);
+    font-weight:600;
+  }
+
+  .info-value{color:var(--text);font-weight:500;}
+
+  /* ---------- Interests ---------- */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:20px;
+  }
+
+  .interest-card{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+
+  .interest-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+
+  .interest-card .icon{
+    width:44px;
+    height:44px;
+    border-radius:10px;
+    background:var(--accent-soft);
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:16px;
+  }
+
+  .interest-card h3{
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+
+  .interest-card p{
+    font-size:14px;
+    color:var(--text-muted);
+  }
+
+  /* ---------- Projects ---------- */
+  .project-card{
+    background:var(--bg-card);
+    border:1px dashed var(--border);
+    border-radius:var(--radius);
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-height:180px;
+  }
+
+  .project-card .tag{
+    display:inline-block;
+    align-self:flex-start;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:4px 10px;
+  }
+
+  .project-card h3{
+    font-size:17px;
+    font-weight:700;
+    color:var(--text-faint);
+  }
+
+  .project-card p{
+    font-size:14px;
+    color:var(--text-faint);
+    flex-grow:1;
+  }
+
+  .project-field{
+    display:flex;
+    gap:10px;
+    font-size:13.5px;
+  }
+
+  .project-field .field-label{
+    flex-shrink:0;
+    width:44px;
+    color:var(--text-faint);
+    font-weight:600;
+  }
+
+  .project-field .field-value{
+    color:var(--text-muted);
+  }
+
+  /* ---------- Contact ---------- */
+  #contact{border-bottom:none;}
+
+  .contact-box{
+    background:var(--contact-bg);
+    color:var(--contact-text);
+    border-radius:20px;
+    padding:56px 48px;
+    text-align:center;
+  }
+
+  .contact-box .eyebrow{color:var(--contact-eyebrow);}
+
+  .contact-box h2{
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+
+  .contact-box p{
+    color:var(--contact-text-muted);
+    max-width:480px;
+    margin:0 auto 32px;
+    font-size:15px;
+  }
+
+  .contact-list{
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+    font-size:15px;
+    font-weight:500;
+  }
+
+  .contact-list a, .contact-list span{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.14);
+  }
+
+  .contact-list a:hover{background:rgba(255,255,255,0.16);}
+
+  footer{
+    padding:32px 0;
+    text-align:center;
+    font-size:13px;
+    color:var(--text-faint);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .about-grid{grid-template-columns:1fr;gap:40px;}
+    .hero h1{font-size:42px;}
+  }
+
+  @media (max-width: 720px){
+    nav ul{
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      flex-direction:column;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      padding:12px 24px 20px;
+      gap:16px;
+      display:none;
+    }
+    nav ul.open{display:flex;}
+    .nav-toggle{display:flex;}
+    .hero{padding:64px 0 56px;}
+    .hero-grid{flex-direction:column;text-align:center;gap:28px;}
+    .hero-lead{margin-left:auto;margin-right:auto;}
+    .cta-row{justify-content:center;}
+    .hero h1{font-size:34px;}
+    section{padding:64px 0;}
+    .section-head h2{font-size:26px;}
+    .contact-box{padding:40px 24px;}
+    .contact-list{flex-direction:column;align-items:stretch;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo">이응호 · Lee Eungho</div>
+    <div class="nav-right">
+      <nav>
+        <ul id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="다크모드 전환" title="다크모드 전환">🌙</button>
+      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" style="border-bottom:1px solid var(--border);">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Personal Finance · 재테크</span>
+        <h1>꾸준함으로 자산을<br>설계하는 <span class="accent">이응호</span>입니다.</h1>
+        <p class="hero-lead">
+          <strong>재테크</strong>에 관심을 두고 자산관리와 투자 원칙을 꾸준히 공부하고 정리하고 있습니다.
+          <!-- 한 줄 모토/소개 문구 추후 입력 -->
+          <span class="placeholder">(소개 문구는 추후 업데이트 예정)</span>
+        </p>
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+          <a href="#contact" class="btn btn-secondary">연락하기</a>
+        </div>
+      </div>
+      <div class="avatar" role="img" aria-label="프로필 아이콘">👨‍💼</div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 style="font-size:32px;font-weight:700;letter-spacing:-0.02em;margin-bottom:20px;">소개</h2>
+        <div class="about-text">
+          <p>
+            안녕하세요, 이응호입니다. <strong>재테크</strong>를 중심으로 자산관리·투자에 대한 지식과 경험을 쌓아가고 있으며,
+            관련 프로젝트와 기록을 이 페이지에 정리해 나갈 예정입니다.
+          </p>
+          <p class="placeholder">(소속 정보는 추후 업데이트 예정)</p>
+        </div>
+      </div>
+      <div class="info-table">
+        <div class="info-row">
+          <div class="info-label">이름</div>
+          <div class="info-value">이응호 (Lee Eungho)</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">소속</div>
+          <div class="info-value placeholder">추후 입력 예정</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">관심사</div>
+          <div class="info-value">재테크 (Personal Finance)</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">연락처</div>
+          <div class="info-value">010-2085-7479</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERESTS ================= -->
+  <section id="interests">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Interests</span>
+        <h2>관심 분야</h2>
+        <p>자산관리와 투자를 중심으로 지속적으로 관심을 두고 있는 영역입니다.</p>
+      </div>
+      <div class="card-grid">
+        <div class="interest-card">
+          <div class="icon">💰</div>
+          <h3>재테크 · 자산관리</h3>
+          <p>Personal Finance & Asset Management — 자산 배분, 저축·투자 전략, 지출 관리 등 개인 재무 설계 전반에 관심을 두고 있습니다.</p>
+        </div>
+        <div class="interest-card" style="border-style:dashed;">
+          <div class="icon">＋</div>
+          <h3 class="placeholder">관심 분야 추가 예정</h3>
+          <p class="placeholder">추후 업데이트 예정</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Projects</span>
+        <h2>주요 프로젝트</h2>
+        <p>진행했거나 진행 중인 프로젝트를 정리할 공간입니다. 상세 내용은 추후 업데이트됩니다.</p>
+      </div>
+      <div class="card-grid">
+        <div class="project-card">
+          <span class="tag">준비 중</span>
+          <div class="project-field">
+            <span class="field-label">제목</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+          <div class="project-field">
+            <span class="field-label">설명</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+          <div class="project-field">
+            <span class="field-label">링크</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <span class="tag">준비 중</span>
+          <div class="project-field">
+            <span class="field-label">제목</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+          <div class="project-field">
+            <span class="field-label">설명</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+          <div class="project-field">
+            <span class="field-label">링크</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <span class="tag">준비 중</span>
+          <div class="project-field">
+            <span class="field-label">제목</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+          <div class="project-field">
+            <span class="field-label">설명</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+          <div class="project-field">
+            <span class="field-label">링크</span>
+            <span class="field-value placeholder">나중에 입력</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <span class="eyebrow">Contact</span>
+        <h2>연락 및 협업</h2>
+        <p>재테크·자산관리 관련 이야기나 프로젝트 협업 제안 모두 편하게 연락 주세요.</p>
+        <div class="contact-list">
+          <span>📞 010-2085-7479</span>
+          <span class="placeholder">✉️ 이메일 추후 추가</span>
+          <span class="placeholder">🔗 GitHub / LinkedIn 추후 추가</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Lee Eungho. All rights reserved.
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch(e) {}
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = saved || (prefersDark ? 'dark' : 'light');
+  applyTheme(initial);
+
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('theme', next); } catch(e) {}
+  });
+
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      root.setAttribute('data-theme', 'dark');
+      themeToggle.textContent = '☀️';
+    } else {
+      root.removeAttribute('data-theme');
+      themeToggle.textContent = '🌙';
+    }
+  }
+</script>
+
+</body>
+</html>
